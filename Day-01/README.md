@@ -13,3 +13,6 @@ Day 01 documentation:
 <h1>How Docker solves the challenges</h1>
 <h1>A Simple Docker WorkFlow</h1>
 <h1>Docker Architecture</h1>
+
+
+![image](https://github.com/Sanjaythanneeru/CKA/blob/main/Day-01/docker_arch.svg)
