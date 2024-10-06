@@ -15,4 +15,4 @@ Day 01 documentation:
 <h1>Docker Architecture</h1>
 
 
-![image](https://github.com/Sanjaythanneeru/CKA/blob/main/Day-01/docker_arch.svg)
+![image](https://github.com/Sanjaythanneeru/CKA/blob/main/Day-01/Docker_arch.svg)
