@@ -7,12 +7,12 @@ Day 03 documentation
 - Clone the below sample repository, or you can use any web application that you have
 
 ```
-git clone https://github.com/docker/getting-started-app.git
+git clone https://github.com/Sanjaythanneeru/todo-app-docker.git
 ```
 
 - cd into the directory
 ```
-cd getting-started-app/
+cd todo-app-docker.git
 ```
 - Create an empty file with the name Dockerfile
 ```
