@@ -1,4 +1,4 @@
-Day 06 Documentation
+Day 06 Documentation.
 
 ## Different ways of creating a Kubernetes object
 - Imperative way ( Through command or API calls)
