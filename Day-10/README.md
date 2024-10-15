@@ -79,3 +79,48 @@ kubectl apply -f services.yaml
 ```
 kubectl get -f myapp.yaml
 ```
+## Sidecar containers
+- Sidecar containers are the secondary containers that run along with the main application container within the same Pod. These containers are used to enhance or to extend the functionality of the primary app container by providing additional services, or functionality such as logging, monitoring, security, or data synchronization, without directly altering the primary application code
+  
+![image](https://github.com/user-attachments/assets/7aca6908-b6b8-494d-9c6f-ac704bb484eb)
+
+- Kubernetes implements sidecar containers as a special case of init containers; sidecar containers remain running after Pod startup
+- If an init container is created with its restartPolicy set to Always, it will start and remain running during the entire life of the Pod.
+
+Example pod manifest with Sidecar
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+  labels:
+    app: myapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: myapp
+          image: alpine:latest
+          command: ['sh', '-c', 'while true; do echo "logging" >> /opt/logs.txt; sleep 1; done']
+          volumeMounts:
+            - name: data
+              mountPath: /opt
+      initContainers:
+        - name: logshipper
+          image: alpine:latest
+          restartPolicy: Always
+          command: ['sh', '-c', 'tail -F /opt/logs.txt']
+          volumeMounts:
+            - name: data
+              mountPath: /opt
+      volumes:
+        - name: data
+          emptyDir: {}
+```
